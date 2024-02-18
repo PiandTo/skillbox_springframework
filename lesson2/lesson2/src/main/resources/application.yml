@@ -1,0 +1,9 @@
+spring:
+    profiles:
+        active:
+            - init
+
+app:
+    loader:
+        url:
+            'default-contacts.txt'
