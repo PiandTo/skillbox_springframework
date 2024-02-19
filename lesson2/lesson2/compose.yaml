@@ -1,1 +1,4 @@
 services:
+  shell_console:
+    image: 'docker.io/shell_console:latest'
+
