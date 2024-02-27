@@ -17,13 +17,15 @@
 # Lesson 2
 	To run APP:
 	1. Go to directory lesson2/lesson2
-	2. Run mvn 'spring-boot:build-image -DskipTests'
-	3. To change Profile to INIT mode go application.properties and commit/uncommit line spring.profiles.active=init
+	2. Run './mvnw install -DskipTests' to build JAR
+	3. Build image 'docker build -t shell .'
+	4. Run image 'docker run shell'
+	5. To change Profile to INIT mode go application.properties and commit/uncommit line spring.profiles.active=init
 
 	App Interface: 
 	Choose what to do and press ENTER
 
-	[1] - add NEW contact
-	[2] - show ALL contacts
-	[3] - DELETE contact
-	[4] - SAVE contact in file
+	ADD - add NEW contact
+	PRINT - show ALL contacts
+	DELETE - DELETE contact по GUID
+	DELETEALL - DELETE ALL
