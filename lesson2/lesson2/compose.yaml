@@ -1,6 +1,6 @@
 # services:
 #   shell_console:
-#     image: shell_console
+#     image: 'docker.io/shell_console'
 #     build:
 #       context: .
 

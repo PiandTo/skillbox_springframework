@@ -59,9 +59,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<!-- <image>
+						<builder>dashaun/builder:tiny</builder>
 						<name>shell_console</name>
 					</image> -->
-					<mainClass>edu.skillbox.lesson2.Lesson2Application</mainClass>
+					<!-- <mainClass>edu.skillbox.lesson2.Lesson2Application</mainClass> -->
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
