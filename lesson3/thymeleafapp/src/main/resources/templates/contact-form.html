@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Contact form</title>
+	<link rel="stylesheet" th:href="@{/css/application.css}">
+</head>
+
+<body>
+	<h1>Contact form</h1>
+
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+		<div class="py-4">
+			<div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+				<form action="#"
+					th:action="${mode} == 'edit' ? @{/contact/edit/{id}(id=${contact.id})} : @{/contact/new}"
+					th:object="${contact}" method="post">
+					<div class="sm:col-span-3">
+						<label for="firstName" class="block text-sm font-medium text-gray-700">First name</label>
+						<div class="mt-1 rounded-md shadow-sm">
+							<input type="text" th:field="*{firstName}" id="firstName" name="firstName"
+								class="shadow-sm focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm border-gray-300 rounded-md">
+						</div>
+					</div>
+
+					<div class="sm:col-span-3">
+						<label for="lastName" class="block text-sm font-medium text-gray-700">Last name</label>
+						<div class="mt-1 rounded-md shadow-sm">
+							<input type="text" th:field="*{lastName}" name="lasttName"
+								class="shadow-sm focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm border-gray-300 rounded-md">
+						</div>
+					</div>
+
+					<div class="sm:col-span-3">
+						<label for="email" class="block text-sm font-medium text-gray-700">Phone</label>
+						<div class="mt-1 rounded-md shadow-sm">
+							<input type="text" th:field="*{email}" id="email" name="email"
+								class="shadow-sm focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm border-gray-300 rounded-md">
+						</div>
+					</div>
+
+					<div class="sm:col-span-3">
+						<label for="phone" class="block text-sm font-medium text-gray-700">Email</label>
+						<div class="mt-1 rounded-md shadow-sm">
+							<input type="text" th:field="*{phone}" id="phone" name="phone"
+								class="shadow-sm focus:ring-green-500 focus:border-green-500 block w-full sm:text-sm border-gray-300 rounded-md">
+						</div>
+					</div>
+					<button type="submit" th:text="${mode} == 'edit' ? 'Edit' : 'Save'">Save</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
