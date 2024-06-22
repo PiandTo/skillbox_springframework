@@ -67,5 +67,4 @@ public class ContactController {
 		contactService.delete(id);
 		return "redirect:/contact";
 	}
-
 }
