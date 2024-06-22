@@ -29,3 +29,12 @@
 	PRINT - show ALL contacts
 	DELETE - DELETE contact по GUID
 	DELETEALL - DELETE ALL
+
+# Lesson 3
+	You need Tailwind CSS and PostCss
+	
+	To run APP
+ 	1. Go to directory lesson3/thymeleafapp
+  	2. Run "mvn verify -DSkipTests" to build JAR
+   	3. Run "mvn springboot:run"
+    	4. To test use port 8081
