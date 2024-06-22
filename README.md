@@ -31,10 +31,10 @@
 	DELETEALL - DELETE ALL
 
 # Lesson 3
-	You need Tailwind CSS and PostCss
+	Optional: You need Tailwind CSS and PostCss
 	
 	To run APP
  	1. Go to directory lesson3/thymeleafapp
-  	2. Run "mvn verify -DSkipTests" to build JAR
-   	3. Run "mvn springboot:run"
-    	4. To test use port 8081
+  	2. Run "mvn verify -DskipTests" to build JAR
+   	3. Run "mvn spring-boot:run"
+    	4. To test use port 8081 (localhost:8081/contact)
