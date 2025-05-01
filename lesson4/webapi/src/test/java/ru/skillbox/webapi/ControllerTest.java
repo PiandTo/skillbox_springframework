@@ -65,8 +65,29 @@ public class ControllerTest {
 		String resultString = result.getResponse().getContentAsString();
 		User readUser = objectMapper.readValue(resultString, User.class);
 		// System.out.println(id);
+		mockMvc.perform(post("/news/" + readUser.getId()).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(news)));
 		mockMvc.perform(get("/users/" + readUser.getId())).andDo(print()).andExpect(status().isOk());
+	}
 
-		mockMvc.perform(post("/news/" + readUser.getId()).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(readUser)));
+	@Test
+	@Order(3)
+	public void updateUser() throws Exception {
+		News news = new News();
+		news.setTitle("Test title news 2");
+		news.setText("Test text news 2");
+		
+		CreateUserDto user = new CreateUserDto();
+		user.setName("Mikhail 1");
+		String userString = objectMapper.writeValueAsString(user);
+
+		MvcResult mvcResult = mockMvc.perform(post("/users").contentType(MediaType.APPLICATION_JSON).content(userString)).andDo(print()).andReturn();
+		String userReturnedString = mvcResult.getResponse().getContentAsString();
+		User userReturned = objectMapper.readValue(userReturnedString, User.class);
+
+		mockMvc.perform(post("/news/" + userReturned.getId()).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(news)));
+
+		userReturned.setName("Mikhail 2");
+		mockMvc.perform(put("/users/" +userReturned.getId())).andDo(print()).andExpect(status().isOk());
+
 	}
 }
