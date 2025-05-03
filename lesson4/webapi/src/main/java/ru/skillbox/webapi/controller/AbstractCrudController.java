@@ -26,7 +26,6 @@ public abstract class AbstractCrudController<CreateDto, SearchDto, Entity>
 
     @Override
     public void delete(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        getCrudService().delete(id);
     }
 }

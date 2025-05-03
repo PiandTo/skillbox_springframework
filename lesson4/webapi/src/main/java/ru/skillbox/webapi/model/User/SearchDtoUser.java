@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.skillbox.webapi.model.New.CreateNewsDto;
+import ru.skillbox.webapi.model.New.SearchDtoNews;
 
 @Getter
 @Setter
 public class SearchDtoUser {
     String id;
     String name;
-    ArrayList<CreateNewsDto> newsArray;
+    ArrayList<SearchDtoNews> newsArray;
 }

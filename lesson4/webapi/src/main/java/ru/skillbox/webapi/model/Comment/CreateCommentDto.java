@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchCommentDto {
-    private String text; 
+public class CreateCommentDto {
+    private String text;
 }

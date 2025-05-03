@@ -1,10 +1,17 @@
 package ru.skillbox.webapi.service;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import ru.skillbox.webapi.model.User.SearchDtoUser;
 import ru.skillbox.webapi.model.User.User;
+import ru.skillbox.webapi.model.New.News;
+import ru.skillbox.webapi.model.New.SearchDtoNews;
 import ru.skillbox.webapi.model.User.CreateUserDto;
 import ru.skillbox.webapi.repository.UserRepository;
 
@@ -26,7 +33,16 @@ public class UserService extends AbstractCrudService<CreateUserDto, SearchDtoUse
 
     @Override
     public SearchDtoUser mapToSearch(User s) {
-        return modelMapper.map(s, SearchDtoUser.class);
+        SearchDtoUser a = modelMapper.map(s, SearchDtoUser.class);
+        List<News> news = s.getNewsArraList();
+        if (news != null) {
+            System.out.println(news.get(0));
+            Type target = new TypeToken<List<SearchDtoNews>>(){}.getType();
+            ArrayList<SearchDtoNews> newsArray = modelMapper.map(news,target);
+            System.out.println(newsArray);
+            a.setNewsArray(newsArray);
+        }
+        return a;
     }
 
     @Override

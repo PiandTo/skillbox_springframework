@@ -1,4 +1,4 @@
-package ru.skillbox.webapi.model.Comment;
+package ru.skillbox.webapi.model.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class SearchCommentDto {
-    private String text; 
+@NoArgsConstructor
+public class CategoryDto {
+    private String type;
 }
