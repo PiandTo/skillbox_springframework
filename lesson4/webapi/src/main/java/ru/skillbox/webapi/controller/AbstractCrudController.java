@@ -4,8 +4,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ru.skillbox.webapi.service.ICrudService;
 
-public abstract class AbstractCrudController<CreateDto, SearchDto, Entity> implements ICrudController<CreateDto, SearchDto, Entity>{
-    
+public abstract class AbstractCrudController<CreateDto, SearchDto, Entity>
+        implements ICrudController<CreateDto, SearchDto, Entity> {
+
     protected abstract ICrudService<CreateDto, SearchDto, Entity> getCrudService();
 
     @Override
@@ -20,13 +21,12 @@ public abstract class AbstractCrudController<CreateDto, SearchDto, Entity> imple
 
     @Override
     public SearchDto update(String id, CreateDto s) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        return getCrudService().update(id, s);
     }
 
     @Override
     public void delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
-    }    
+    }
 }

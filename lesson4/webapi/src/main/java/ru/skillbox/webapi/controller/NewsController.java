@@ -1,6 +1,9 @@
 package ru.skillbox.webapi.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +32,9 @@ public class NewsController extends AbstractCrudController<CreateNewsDto, Search
     public SearchDtoNews addNewsToUser(@PathVariable String id, @RequestBody CreateNewsDto news) {
         return newsService.addNewsToUser(news, id);
     }
-    
+
+    @GetMapping
+    public List<SearchDtoNews> getAll() {
+        return newsService.getAll();
+    }
 }

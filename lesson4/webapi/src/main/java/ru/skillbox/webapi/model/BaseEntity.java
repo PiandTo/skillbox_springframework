@@ -6,13 +6,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import lombok.Getter;
-import lombok.Setter;
 
 @MappedSuperclass
-@Getter
-public class BaseEntity{
+public class BaseEntity extends IModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
+
+	@Override
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	@Override
+	public UUID getId() {
+		return this.id;
+	}
 }

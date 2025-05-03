@@ -1,5 +1,7 @@
 package ru.skillbox.webapi.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
@@ -40,12 +42,23 @@ public class NewsService extends AbstractCrudService<CreateNewsDto, SearchDtoNew
     public SearchDtoNews mapToSearch(News s) {
         return modelMapper.map(s, SearchDtoNews.class);
     }
-    
+
     public SearchDtoNews addNewsToUser(CreateNewsDto news, String id) {
         User user = userRepository.findById(UUID.fromString(id)).orElseThrow();
         News news1 = mapToEntity(news);
         user.addNews(news1);
         return mapToSearch(newsRepository.save(news1));
+    }
+
+    public List<SearchDtoNews> getAll() {
+        List<SearchDtoNews> arrList = new ArrayList<>();
+
+        List<News> arrList2 = newsRepository.findAll();
+
+        for (News a : arrList2) {
+            arrList.add(mapToSearch(a));
+        }
+        return arrList;
     }
 
 }
